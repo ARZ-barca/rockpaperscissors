@@ -56,7 +56,7 @@ function play(playerSelection, computerSelection) {
         }
     }   
 }
-
+/* this is conslose version
 function game() {
     //declaring the needed variables
     let computerSelection;
@@ -82,4 +82,43 @@ function game() {
 }
 
 game()
+*/
 //console.log(computerPlay())
+
+//this is the ui version
+function game(){
+    choices = document.querySelectorAll(".choice");
+    p = document.createElement('p');
+    p.style.cssText = "text-align: center; font: bold 22px monospace; padding: 50px;"
+    body = document.querySelector('body')
+    body.appendChild(p)
+    let humanScore = 0
+    let computerScore = 0
+
+    choices.forEach(element => {
+        element.addEventListener('click', (e) => {
+            result = play(e.target.textContent, computerPlay())
+            if (result.slice(0, 8) === "You Win!") {
+                humanScore++;
+            }
+            else if (result.slice(0, 9) === "You Lose!")
+                computerScore++;
+            p.textContent = result + `\nyour score: ${humanScore}, computer score: ${computerScore}`
+            if (humanScore === 5) {
+                humanScore = 0;
+                computerScore = 0;
+                p.textContent = ('you have won congrats!')
+            }
+            else if(computerScore === 5) {
+                humanScore = 0;
+                computerScore = 0;
+                p.textContent = ('you have Lost!')
+            }
+        })
+    });
+}
+
+game()
+
+
+

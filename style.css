@@ -1,0 +1,32 @@
+.container {
+    display: flex;
+    justify-content: space-around;
+}
+
+.choice {
+    width: 200px;
+    text-align: center;
+    height: 200px;
+    border-radius: 10px;
+}
+
+.rock {
+    background-color: rgb(76, 101, 102);
+}
+
+.rock:hover {
+    background-color: rgb(59, 79, 80);
+}
+
+.scissors {
+    background-color: crimson;
+}
+
+.scissors:hover {
+    background-color: rgb(167, 13, 44);
+}
+
+.paper {
+
+}
+
